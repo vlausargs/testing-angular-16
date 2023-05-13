@@ -31,7 +31,7 @@ export class DashboardComponent {
         ],
       },
       options: {
-        aspectRatio: 1,
+        maintainAspectRatio: false,
       },
     });
     this.chart2 = new Chart('MyChart2', {
@@ -52,7 +52,7 @@ export class DashboardComponent {
         ],
       },
       options: {
-        aspectRatio: 1,
+        maintainAspectRatio: false,
       },
     });
   }
