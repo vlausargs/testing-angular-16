@@ -35,17 +35,17 @@ export class DashboardComponent {
       },
     });
     this.chart2 = new Chart('MyChart2', {
-      type: 'pie', //this denotes tha type of chart
-
       data: {
         // values on X-Axis
         labels: ['2022-05-10', '2022-05-11', '2022-05-12', '2022-05-13'],
         datasets: [
           {
+            type: 'line', //this denotes tha type of chart
             label: 'Sales',
             data: ['467', '576', '572', '79'],
           },
           {
+            type: 'bar', //this denotes tha type of chart
             label: 'Profit',
             data: ['542', '542', '536', '327'],
           },
