@@ -1,5 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { Chart, Colors } from 'chart.js/auto';
+import { Router, Route } from '@angular/router';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -8,10 +10,30 @@ import { Chart, Colors } from 'chart.js/auto';
 export class DashboardComponent {
   public chart: any;
   public chart2: any;
+  public roles = JSON.parse(localStorage.getItem('roles') || '');
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.createChart();
   }
+
+  async importRouter() {
+    const zipUtil = await import('../products/products.component');
+
+    const dynamicRoute = {
+      path: 'dynamic',
+      component: zipUtil['ProductsComponent'],
+    };
+    console.log(this.router.config);
+    this.router.resetConfig(this.router.config);
+    this.router.config.push(dynamicRoute);
+    this.router.config = this.router.config.filter(function (item) {
+      return item.path !== 'products';
+    });
+    this.router.navigateByUrl('dynamic');
+  }
+
   createChart() {
     this.chart = new Chart('MyChart', {
       type: 'pie', //this denotes tha type of chart
