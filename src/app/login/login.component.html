@@ -1,0 +1,29 @@
+<div class="wrapper wrapper2 container">
+  <div class="row">
+    <!-- Form -->
+    <div class="col-md-12">
+      <h3>Login</h3>
+      <form [formGroup]="loginForm" (ngSubmit)="submitForm()" novalidate>
+        <div class="form-group">
+          <label>email</label>
+          <input
+            type="text"
+            formControlName="email"
+            class="form-control"
+            maxlength="20"
+          />
+        </div>
+        <div class="form-group">
+          <label>password</label>
+          <textarea
+            class="form-control"
+            formControlName="password"
+            rows="3"
+            maxlength="50"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
