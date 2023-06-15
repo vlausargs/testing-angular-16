@@ -2,6 +2,7 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { Auth } from '../dto/auth';
 
 @Component({
   selector: 'app-login',
@@ -23,8 +24,9 @@ export class LoginComponent {
   ) {}
 
   submitForm() {
-    this.authService.login(this.loginForm.value).subscribe((res: any) => {
+    this.authService.login(this.loginForm.value).subscribe((res: Auth) => {
       console.log(res);
+      this.authService.authResponse = res;
       // this.ngZone.run(() => this.router.navigateByUrl('/issues-list'));
     });
   }

@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RoleGuardGuard } from './core/guards/role-guard.guard';
 import { RouteGuardsGuard } from './core/guards/route-guards.guard';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './core/guards/auth-guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -13,8 +14,8 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductsComponent,
-    canActivate: [RoleGuardGuard, RouteGuardsGuard],
-    data: { role: ['admin'] },
+    canActivate: [AuthGuard],
+    data: { role: ['DEFAULT_AUTH2'] },
   },
 ];
 

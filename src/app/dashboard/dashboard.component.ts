@@ -10,7 +10,7 @@ import { Router, Route } from '@angular/router';
 export class DashboardComponent {
   public chart: any;
   public chart2: any;
-  public roles = JSON.parse(localStorage.getItem('roles') || '');
+  // public roles = JSON.parse(localStorage.getItem('roles') || '');
 
   constructor(private router: Router) {}
 
